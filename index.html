@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Smart Gefrierschrank</title>
+  <meta name="theme-color" content="#0a84ff" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>❄️ Smart Gefrierschrank</h1>
+      <p class="subtitle">Inventar für Haushalt, Gefrierschränke und Fächer</p>
+    </div>
+
+    <div class="household-box">
+      <label for="householdSelect">Haushalt</label>
+      <select id="householdSelect"></select>
+    </div>
+  </header>
+
+  <main class="content">
+    <section id="tab-inventar" class="tab active">
+      <div class="card">
+        <h2>Lebensmittel hinzufügen</h2>
+        <form id="itemForm">
+          <label>
+            Gefrierschrank
+            <input id="freezerInput" type="text" placeholder="z. B. Keller" required />
+          </label>
+
+          <label>
+            Fach
+            <input id="sectionInput" type="text" placeholder="z. B. Fach 1" required />
+          </label>
+
+          <label>
+            Lebensmittel
+            <input id="foodInput" type="text" placeholder="z. B. Pizza" required />
+          </label>
+
+          <label>
+            Menge
+            <input id="amountInput" type="number" min="1" step="1" value="1" required />
+          </label>
+
+          <label>
+            Einfrierdatum
+            <input id="dateInput" type="date" required />
+          </label>
+
+          <button type="submit" class="primary">Speichern</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <div class="row-between">
+          <h2>Inventar</h2>
+          <input id="searchInput" type="text" placeholder="Suchen..." />
+        </div>
+        <div id="inventoryList" class="list"></div>
+      </div>
+    </section>
+
+    <section id="tab-einkauf" class="tab">
+      <div class="card">
+        <h2>Einkaufsliste</h2>
+        <form id="shoppingForm">
+          <label>
+            Artikel
+            <input id="shoppingInput" type="text" placeholder="z. B. Erbsen" required />
+          </label>
+          <button type="submit" class="primary">Zur Liste hinzufügen</button>
+        </form>
+
+        <div id="shoppingList" class="list"></div>
+      </div>
+    </section>
+
+    <section id="tab-smart" class="tab">
+      <div class="card">
+        <h2>Smart-Modus</h2>
+        <p class="muted">Hier siehst du Lebensmittel, die bald verbraucht werden sollten.</p>
+        <div id="smartList" class="list"></div>
+      </div>
+    </section>
+
+    <section id="tab-rezepte" class="tab">
+      <div class="card">
+        <h2>Rezeptvorschläge</h2>
+        <div id="recipeList" class="list"></div>
+      </div>
+
+      <div class="card">
+        <h2>Wochenplan</h2>
+        <div id="mealPlan" class="list"></div>
+      </div>
+    </section>
+
+    <section id="tab-stats" class="tab">
+      <div class="card">
+        <h2>Statistik</h2>
+        <div id="statsList" class="list"></div>
+      </div>
+    </section>
+
+    <section id="tab-admin" class="tab">
+      <div class="card">
+        <h2>Admin</h2>
+
+        <form id="householdForm">
+          <label>
+            Neuer Haushalt
+            <input id="newHouseholdInput" type="text" placeholder="z. B. Zuhause" required />
+          </label>
+          <button type="submit" class="primary">Haushalt anlegen</button>
+        </form>
+
+        <div class="divider"></div>
+
+        <form id="freezerForm">
+          <label>
+            Neuer Gefrierschrank
+            <input id="newFreezerInput" type="text" placeholder="z. B. Garage" required />
+          </label>
+          <button type="submit" class="primary">Gefrierschrank speichern</button>
+        </form>
+
+        <div class="divider"></div>
+
+        <h3>QR-Text für ein Fach</h3>
+        <p class="muted">Diesen Text kannst du später in einen QR-Code-Generator kopieren.</p>
+
+        <form id="qrForm">
+          <label>
+            Gefrierschrank
+            <input id="qrFreezerInput" type="text" placeholder="z. B. Keller" required />
+          </label>
+
+          <label>
+            Fach
+            <input id="qrSectionInput" type="text" placeholder="z. B. Fach 1" required />
+          </label>
+
+          <button type="submit" class="primary">QR-Text erzeugen</button>
+        </form>
+
+        <pre id="qrOutput" class="codebox"></pre>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottomnav">
+    <button data-tab="inventar" class="navbtn active">📦<span>Inventar</span></button>
+    <button data-tab="einkauf" class="navbtn">🧾<span>Einkauf</span></button>
+    <button data-tab="smart" class="navbtn">⚠️<span>Smart</span></button>
+    <button data-tab="rezepte" class="navbtn">🍳<span>Rezepte</span></button>
+    <button data-tab="stats" class="navbtn">📊<span>Stats</span></button>
+    <button data-tab="admin" class="navbtn">⚙️<span>Admin</span></button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
