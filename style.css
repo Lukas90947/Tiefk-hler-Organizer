@@ -1,0 +1,21 @@
+body{
+font-family:Arial;
+padding:20px;
+background:#eef6f7;
+}
+
+h1{
+color:#0f766e;
+}
+
+button{
+padding:10px;
+background:#0f766e;
+color:white;
+border:none;
+border-radius:8px;
+}
+
+li{
+margin:5px 0;
+}
